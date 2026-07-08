@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Showcase GUI</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body {
+            background-color: #182533;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .card {
+            background-color: #202b36;
+            border-radius: 12px;
+            padding: 15px;
+            margin: 20px auto;
+            max-width: 300px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .btn {
+            background-color: #2481cc;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .btn:hover { background-color: #2a96e8; }
+    </style>
+</head>
+<body>
+
+    <h2>🛍️ Showcase Folder</h2>
+    <p>Select a pack to unlock instantly using your onions balance.</p>
+
+    <div class="card">
+        <h3>🎬 Premium Video Pack</h3>
+        <p>Cost: 2 🧅 per view</p>
+        <button class="btn" onclick="buyItem()">Buy & Unlock</button>
+    </div>
+
+    <script>
+        // Inicjalizacja skryptu Telegram
+        const tg = window.Telegram.WebApp;
+        tg.expand(); // Rozwiń okno na cały ekran telefonu
+
+        function buyItem() {
+            // Wysyłanie informacji z powrotem do bota w Pythonie
+            const data = { action: "buy_video" };
+            tg.sendData(json.stringify(data));
+            tg.close(); // Zamknij okienko po zakupie
+        }
+    </script>
+</body>
+</html>
